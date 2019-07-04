@@ -32,3 +32,10 @@ Route::get('/logout', function(){
     Auth::logout();
     return Redirect::to('admin.login');
  });
+   
+ //catagry functions
+ Route::post('/catagory/save', 'CatagoryController@catagorySave');
+ Route::post('/catagory/getAll', 'CatagoryController@getAll');
+ Route::post('catagory/deleteById', 'CatagoryController@deleteById');
+ Route::get('catagory/getById', 'CatagoryController@getById');
+
