@@ -39,40 +39,52 @@
     <!-- /. tools -->
     </div>
     <!-- /.card-header -->
-
+	@if(count($errors) > 0)
+        @foreach($errors-> all() as $error)
+          <div class='alert alert-danger'>
+              {{$error}}
+          </div>
+        @endforeach
+      @endif
+      @if(session('success'))
+          <div class='alert alert-success'>
+              {{session('success')}}
+          </div>
+      @endif
     <div class="card-body pad">
-    <form class="form-horizontal">
+    <form action="catagory/save" enctype="multipart/form-data" method="post" id="catForm" class="form-horizontal">
+    {{ csrf_field() }}
     <div class="card-body">
       <div class="form-group">
 
 
       <div class="col-sm-6 f-right">
-      <input type="add_category" class="form-control" id="add_category" placeholder="Category">
+      <input type="text" class="form-control" id="catagory_name" name="catagory_name" placeholder="Category Name">
       </div>
       <div class="col-md-6 input-group f-right">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="exampleInputFile" name="images[]" multiple="true" onchange="readURL(this);">
+              <input type="file" class="custom-file-input" id="image" name="image">
               <label class="custom-file-label" for="exampleInputFile">Add Item Image</label>
             </div>
-            <div class="input-group-append">
+            <!-- <div class="input-group-append">
               <span class="input-group-text" id="">Upload</span>
-            </div>
+            </div> -->
 
             </div>
     </div>
       <div class="form-group">
       <div class="col-sm-12">
-        <input type="add_category" class="form-control" id="add_category" placeholder="Meta Title">
+        <input type="text" class="form-control" id="meta_title" name="meta_title" placeholder="Meta Title">
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-12">
-          <input type="add_category" class="form-control" id="add_category" placeholder="Meta Keyword">
+          <input type="text" class="form-control" id="meta_keyword"  name="meta_keyword" placeholder="Meta Keyword">
         </div>
     </div>
     <div class="form-group">
         <div class="col-sm-12">
-            <input type="add_category" class="form-control" id="add_category" placeholder="Meta description">
+            <input type="text" class="form-control" id="meta_description"  name="meta_description" placeholder="Meta description">
         </div>
 
 
@@ -81,7 +93,7 @@
     </div>
     <!-- /.card-body -->
     <div class="">
-      <button type="submit" class="btn btn-success">Submit </button>
+      <button type="submit"  class="btn btn-success">Submit </button>
 
     </div>
     <!-- /.card-footer -->
@@ -117,24 +129,26 @@
           <th>Meta description</th>
           <th>Created at</th>
           <th class="th-sm" colspan="2">Action</th>
-        </tr>
-          <tr>
-          <td>1.</td>
-          <td>Electronin Components</td>
-          <td><img src="" alt=""></td>
-          <td>Meta Title</td>
-          <td>Meta Keyword</td>
-          <td>Meta description</td>
-          <td>
-            Created date
-          </td>
-          <td class="article-btn edit"><a href="#" title="Update Data"><i style="color:#ffa700" class="fa fa-pencil-square" aria-hidden="true"></i></a>  </td>
-          <td class="article-btn delete"><a href="#" title="Delete Article"><i style="color:#910f2c" class="fa fa-window-close" aria-hidden="true"></i></a> </td>
-        </tr>
+          <tbody id="tbodyview"></tbody>
+<!--         </tr> 
+<!--           <tr> -->
+<!--           <td>1.</td> -->
+<!--           <td>Electronin Components</td> -->
+<!--           <td><img src="" alt=""></td> -->
+<!--           <td>Meta Title</td> -->
+<!--           <td>Meta Keyword</td> -->
+<!--           <td>Meta description</td> -->
+<!--           <td> -->
+<!--             Created date -->
+<!--           </td> -->
+         <!--  <td class="article-btn edit"><a href="#" title="Update Data"><i style="color:#ffa700" class="fa fa-pencil-square" aria-hidden="true"></i></a>  </td>
+          <td class="article-btn delete"><a href="#" title="Delete Article"><i style="color:#910f2c" class="fa fa-window-close" aria-hidden="true"></i></a> </td>-->
+<!--         </tr> -->
 
 
           </tbody></table>
     </div>
   </div>
+  @include('js.add-category-js')
   </section>
 @stop

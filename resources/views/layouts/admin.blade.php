@@ -2,7 +2,7 @@
     <head>
     @include('includes.admin-head')
     </head>
-    <body class="hold-transition sidebar-mini">
+    <body class="hold-transition sidebar-mini" onload="onloadFunc()">
         <div class="wrapper">
             @include('includes.admin-nav')
             @include('includes.admin-sidebar')
