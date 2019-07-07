@@ -40,3 +40,10 @@ Route::get('/logout', function(){
  Route::post('catagory/deleteById', 'CatagoryController@deleteById');
  Route::post('catagory/getById', 'CatagoryController@getById');
 
+ //sub catagory functions
+ Route::post('/sub_catagory/save', 'SubCatagoryController@save');
+ Route::post('/sub_catagory/update', 'SubCatagoryController@update');
+ Route::post('sub_catagory/getAll', 'SubCatagoryController@getAll');
+ Route::post('sub_catagory/deleteById', 'SubCatagoryController@deleteById');
+ Route::post('sub_catagory/getById', 'SubCatagoryController@getById');
+

@@ -49,19 +49,28 @@
         <!-- /. tools -->
       </div>
       <!-- /.card-header -->
-
+    	@if(count($errors) > 0)
+        @foreach($errors-> all() as $error)
+          <div class='alert alert-danger'>
+              {{$error}}
+          </div>
+        @endforeach
+      @endif
+      @if(session('success'))
+          <div class='alert alert-success'>
+              {{session('success')}}
+          </div>
+      @endif
       <div class="card-body pad">
-        <form class="form-horizontal">
+        <form class="form-horizontal" id='subCatForm' action='sub_catagory/save' method="post">
+        {{ csrf_field() }}
         <div class="card-body">
           <div class="form-group">
 
 
           <div class="col-sm-6">
-            <select class="form-control">
-            <option>Electronic Components</option>
-            <option>Printed Circuit Boards</option>
-            <option>Sensors</option>
-            <option>CCTV Camera</option>
+          	<input type="hidden" id="id" name="id">
+            <select class="form-control" id="catagory_id" name="catagory_id">
 
             </select>
 
@@ -74,7 +83,7 @@
 
 
           <div class="col-sm-6">
-            <input type="add_category" class="form-control" id="add_category" placeholder="Sub Category Name">
+            <input type="add_category" class="form-control" id="sub_catagory_name" name="sub_catagory_name" placeholder="Sub Category Name">
           </div>
 
 
@@ -110,27 +119,31 @@
 
       <div class="card-body pad">
       <table class="table table-bordered">
-        <tbody><tr>
-        <th style="width: 10px">#</th>
-        <th>Category</th>
-        <th>Sub Category</th>
-        <th>Created at</th>
-        <th class="th-sm" colspan="2">Action</th>
-    </tr>
-        <tr>
-        <td>1.</td>
-        <td>Electronic Components</td>
-        <td>Capaciter</td>
-        <td>
-                Created date
-        </td>
+<!--         <tbody>-->
+        <tr> 
+        	<th style="width: 10px">#</th>
+            <th>Category</th>
+            <th>Sub Category</th>
+            <th>Created at</th>
+            <th class="th-sm" colspan="2">Action</th>
+        </tr>
+<!--         <tr> -->
+<!--         <td>1.</td> -->
+<!--         <td>Electronic Components</td> -->
+<!--         <td>Capaciter</td> -->
+<!--         <td> -->
+<!--                 Created date -->
+<!--         </td>
         <td class="article-btn edit"><a href="#" title="Update Data"><i style="color:#ffa700" class="fa fa-pencil-square" aria-hidden="true"></i></a>  </td>
         <td class="article-btn delete"><a href="#" title="Delete Article"><i style="color:#910f2c" class="fa fa-window-close" aria-hidden="true"></i></a> </td>
-  </tr>
+  </tr> -->
 
 
-      </tbody></table>
+<!--       </tbody> -->
+		<tbody id="tbodyview"></tbody>
+      </table>
       </div>
     </div>
+    @include('js.add-sub-js')
     </section>
 @stop

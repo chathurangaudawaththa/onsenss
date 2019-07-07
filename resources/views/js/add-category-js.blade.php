@@ -16,7 +16,7 @@
              success: function (data) {
                  var tableInsert='';
                  $.each(data, function (index, value) {
-                      tableInsert=tableInsert+" <tr><td>"+value.catagory_name+"</td><td>"+value.image_path+"</td><td>"+value.meta_title+"</td><td>"+value.meta_keyword+"</td><td>"+value.meta_description+"</td><td>"+value.created_at+"</td>";
+                      tableInsert=tableInsert+" <tr><td>"+index+"</td><td>"+value.catagory_name+"</td><td>"+value.image_path+"</td><td>"+value.meta_title+"</td><td>"+value.meta_keyword+"</td><td>"+value.meta_description+"</td><td>"+value.created_at+"</td>";
                     
           			 tableInsert=tableInsert+"</td><td class='article-btn edit'><a href='#' onclick='setFormValuesByCatagoryId("+value.id+")' title='Update Data'><i style='color:#ffa700' class='fa fa-pencil-square' aria-hidden='true'></i></a>  </td><td class='article-btn delete'><a href='#' onclick='deleteCatagoryById("+value.id+")' title='Delete Data'><i style='color:#910f2c'  class='fa fa-window-close' aria-hidden='true'></i></a> </td></tr> ";
                  });
