@@ -59,6 +59,7 @@
 
 
       <div class="col-sm-6 f-right">
+       <input type="hidden" id="id" name="id">
       <input type="text" class="form-control" id="catagory_name" name="catagory_name" placeholder="Category Name">
       </div>
       <div class="col-md-6 input-group f-right">

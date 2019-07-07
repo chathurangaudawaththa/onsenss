@@ -34,8 +34,9 @@ Route::get('/logout', function(){
  });
    
  //catagry functions
- Route::post('/catagory/save', 'CatagoryController@catagorySave');
+ Route::post('/catagory/save', 'CatagoryController@save');
+ Route::post('/catagory/update', 'CatagoryController@update');
  Route::post('/catagory/getAll', 'CatagoryController@getAll');
  Route::post('catagory/deleteById', 'CatagoryController@deleteById');
- Route::get('catagory/getById', 'CatagoryController@getById');
+ Route::post('catagory/getById', 'CatagoryController@getById');
 

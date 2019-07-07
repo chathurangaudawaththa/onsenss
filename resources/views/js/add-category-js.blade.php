@@ -53,7 +53,7 @@
     	var rdata={catId : catId};
     	$.ajax({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            type: "GET",
+            type: "POST",
             url: "catagory/getById",
             processData: false, 
             contentType: false,
@@ -61,12 +61,20 @@
             data: JSON.stringify(rdata),
             contentType: "application/json",
             success: function (data) {
-               alert('Successfully updated ');
-               getAllCatagories();
+            	setFormValues(data);
+            	 $('#catForm')[0].action="catagory/update";
             },
             error: function (e) {
                 alert(e);
             }
         });
+    }
+
+    function setFormValues(data){
+		$('#catagory_name').val(data.catagory_name);
+		$('#meta_description').val(data.meta_description);
+		$('#meta_keyword').val(data.meta_keyword);
+		$('#meta_title').val(data.meta_title);
+		$('#id').val(data.id);
     }
 </script>
