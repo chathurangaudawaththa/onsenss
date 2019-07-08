@@ -16,68 +16,78 @@
           <i class="fa fa-times"></i></button>
         </div>
         </div>
+        @if(count($errors) > 0)
+        @foreach($errors-> all() as $error)
+          <div class='alert alert-danger'>
+              {{$error}}
+          </div>
+        @endforeach
+      @endif
+      @if(session('success'))
+          <div class='alert alert-success'>
+              {{session('success')}}
+          </div>
+      @endif
         <div class="card-body pad">
-        <form class="form-horizontal">
+        <form action="component/save" enctype="multipart/form-data" method="post" id="coponentForm" class="form-horizontal">
+    {{ csrf_field() }}
           <div class="card-body">
           <div class="form-group">
             <div class="col-sm-6">
-            <select class="form-control">
-              <option value="0">Select Sub Category</option>
-              <option>Connectors</option>
-              <option>Analog chips</option>
-              <option>Keyswitche / Relays</option>
+            <select class="form-control" id="sub_catagory_id" name="sub_catagory_id">
+              
             </select>
             </div>
           </div>
           <div class="form-group ">
             <div class="col-md-3 f-right">
-            <input class="form-control" type="text" id="part_number" placeholder="Part Number"
+            <input class="form-control" type="text" id="part_number" name="part_number"  placeholder="Part Number"
               name="part_number">
             </div>
             <div class="col-md-6 f-right">
-            <input class="form-control" type="text" id="description" placeholder="Description"
+            <input class="form-control" type="text" id="description" name="description" placeholder="Description"
               name="description">
             </div>
             <div class="col-md-3 f-right">
-              <input class="form-control" type="text" id="series" placeholder="Series" name="series">
+              <input class="form-control" type="text" id="series" name="series" placeholder="Series" name="series">
             </div>
           </div>
           <div class="form-group ">
             <div class="col-md-3 f-right">
-            <input class="form-control" type="text" id="menu_part" placeholder="Manufacturer Part Number"
+            <input class="form-control" type="text" id="manufacturer_part_number"  name="manufacturer_part_number" placeholder="Manufacturer Part Number"
               name="menu_part">
             </div>
             <div class="col-md-3 f-right">
-            <input class="form-control" type="text" id="manufact" placeholder="Manufacturer" name="manufact">
+            <input class="form-control" type="text" id="manufacturer" name="manufacturer" placeholder="Manufacturer" name="manufact">
             </div>
             <div class="col-md-3 f-right">
-            <input class="form-control" type="text" id="qut_ava" placeholder="Quantity Available"
+            <input class="form-control" type="text" id="quantity_available" name="quantity_available" placeholder="Quantity Available"
               name="qut_ava">
             </div>
-            <div class="col-md-3 f-right">
-            <input class="form-control" type="text" id="unit_pr" placeholder="Unit Price LKR" name="unit_pr">
+            <div class="col-md-3 f-right"> 
+            <input class="form-control" type="text" id="unit_price" name="unit_price" placeholder="Unit Price LKR" name="unit_pr">
             </div>
             </div>
           <div class="form-group ">
             <div class="col-md-3 f-right">
-              <input class="form-control" type="text" id="min_quy" placeholder="Minimum Quantity"
+              <input class="form-control" type="text" id="minimum_quantity"  name="minimum_quantity" placeholder="Minimum Quantity"
                 name="min_quy">
               </div>
             <div class="col-md-3 f-right">
-            <input class="form-control" type="text" id="part_stat" placeholder="Part Status" name="part_stat">
+            <input class="form-control" type="text" id="part_status" name="part_status" placeholder="Part Status" name="part_stat">
             </div>
             <div class="col-md-3 f-right">
-            <input class="form-control" placeholder="Accessory Type" type="text" id="acc_typ" name="acc_typ">
+            <input class="form-control" placeholder="Accessory Type" type="text" id="accessory_Type" name="accessory_Type">
             </div>
             <div class="col-md-3 f-right">
-            <input class="form-control" type="text" id="rel_prd" placeholder="For Use With/Related Products"
+            <input class="form-control" type="text" id="for_use_with_related_products" name="for_use_with_related_products" placeholder="For Use With/Related Products"
               name="rel_prd">
             </div>
           </div>
           <div class="form-group ">
             <div class="col-md-6 input-group f-right">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="exampleInputFile" name="images[]" multiple="true" onchange="readURL(this);">
+                <input type="file" class="custom-file-input" id="data_sheet" name="data_sheet" multiple="true" onchange="readURL(this);">
                 <label class="custom-file-label" for="exampleInputFile">Add Data Sheet</label>
               </div>
               <div class="input-group-append">
@@ -87,7 +97,7 @@
               </div>
             <div class="col-md-6 input-group f-right">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="exampleInputFile" name="images[]" multiple="true" onchange="readURL(this);">
+                  <input type="file" class="custom-file-input" id="image" name="image" multiple="true" onchange="readURL(this);">
                   <label class="custom-file-label" for="exampleInputFile">Add Item Image</label>
                 </div>
                 <div class="input-group-append">
@@ -161,5 +171,6 @@
           </table>
         </div>
       </div>
+      @include('js.component-js')
     </section>
 @stop

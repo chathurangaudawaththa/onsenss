@@ -19,6 +19,10 @@ Route::get('/add-cat', function () {
 Route::get('/add-sub', function () {
     return view('admin.add-sub');
 });
+
+Route::get('/add-component', function () {
+    return view('admin.component');
+});
 Route::post('/add-user', 'UserController@AddUser');
 
 
@@ -47,3 +51,5 @@ Route::get('/logout', function(){
  Route::post('sub_catagory/deleteById', 'SubCatagoryController@deleteById');
  Route::post('sub_catagory/getById', 'SubCatagoryController@getById');
 
+ //Electric component functions
+ Route::post('/component/save', 'ElComponentController@save');

@@ -60,7 +60,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-              <a href="electronic.html" class="nav-link active">
+              <a href="/add-component" class="nav-link active">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>Electronic Components</p>
               </a>
