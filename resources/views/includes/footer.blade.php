@@ -1,27 +1,29 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-
-<title>Onsenss Technology | Admin panel</title>
-
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}">
-<!-- Theme style -->
-<link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
-<!-- Google Font: Source Sans Pro -->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-<style>
-.f-right {
-  float: left;
-  margin-bottom: 1rem;
-}
-.zoom {
-display:table;
-transition: transform .8s; /* Animation */
-margin: 0 auto;
-}
-
-.zoom:hover {
-transform: scale(5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
-</style>
+<script>
+      $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+      });
+   </script>
+   <script src="{{ asset('js/aos.js') }}"></script> 
+   <script>
+      AOS.init();
+   </script>
+   <script src="{{ asset('js/shrink.js') }}"></script> 
+   <script>
+      var btn = $('#button');
+      
+      $(window).scroll(function() {
+       if ($(window).scrollTop() > 300) {
+         btn.addClass('show');
+       } else {
+         btn.removeClass('show');
+       }
+      });
+      
+      btn.on('click', function(e) {
+       e.preventDefault();
+       $('html, body').animate({scrollTop:0}, '300');
+      });
+      
+      
+        
+   </script>
