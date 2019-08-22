@@ -1,6 +1,5 @@
  @extends('layouts.default')
 @section('content')
-<<<<<<< HEAD
 <a id="button"></a> 
 <!-- slider--------------------------------------------------------------------------------------------------------- -->
 <div class="container-fluid slider-full">
@@ -586,5 +585,4 @@
             </div>
          </div>
       </div>
->>>>>>> branch 'master' of https://github.com/chathurangaudawaththa/onsenss.git
 @stop 
