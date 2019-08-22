@@ -23,6 +23,14 @@ Route::get('/add-sub', function () {
 Route::get('/add-component', function () {
     return view('admin.component');
 });
+// sample routes
+Route::get('/list', function () {
+    return view('pages.list');
+});
+Route::get('/item', function () {
+    return view('pages.item');
+});
+// sample routes
 Route::post('/add-user', 'UserController@AddUser');
 
 
