@@ -18,19 +18,16 @@
         </div>
         @if(count($errors) > 0)
         @foreach($errors-> all() as $error)
-          <div class="container">
+  
             <div class='alert alert-danger'>
                 {{$error}}
             </div>
-          </div>
         @endforeach
       @endif
       @if(session('success'))
-          <div class="container">
             <div class='alert alert-success'>
                 {{session('success')}}
             </div>
-          </div>
       @endif
         <div class="card-body pad">
         <form action="component/save" enctype="multipart/form-data" method="post" id="coponentForm" class="form-horizontal">
