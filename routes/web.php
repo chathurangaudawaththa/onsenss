@@ -23,6 +23,17 @@ Route::get('/add-sub', function () {
 Route::get('/add-component', function () {
     return view('admin.component');
 });
+<<<<<<< HEAD
+// sample routes
+Route::get('/list', function () {
+    return view('pages.list');
+});
+Route::get('/item', function () {
+    return view('pages.item');
+});
+// sample routes
+=======
+>>>>>>> branch 'master' of https://github.com/chathurangaudawaththa/onsenss.git
 Route::post('/add-user', 'UserController@AddUser');
 
 

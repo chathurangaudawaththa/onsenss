@@ -18,6 +18,18 @@
         </div>
         @if(count($errors) > 0)
         @foreach($errors-> all() as $error)
+<<<<<<< HEAD
+  
+            <div class='alert alert-danger'>
+                {{$error}}
+            </div>
+        @endforeach
+      @endif
+      @if(session('success'))
+            <div class='alert alert-success'>
+                {{session('success')}}
+            </div>
+=======
           <div class='alert alert-danger'>
               {{$error}}
           </div>
@@ -27,6 +39,7 @@
           <div class='alert alert-success'>
               {{session('success')}}
           </div>
+>>>>>>> branch 'master' of https://github.com/chathurangaudawaththa/onsenss.git
       @endif
         <div class="card-body pad">
         <form action="component/save" enctype="multipart/form-data" method="post" id="coponentForm" class="form-horizontal">
