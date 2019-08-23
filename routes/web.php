@@ -21,9 +21,8 @@ Route::get('/add-component', function () {
     return view('admin.component');
 });
 
-Route::get('/list', function () {
-    return view('pages.list');
-});
+Route::get('/list','ElComponentController@getAllToList' );
+
 Route::get('/item', function () {
     return view('pages.item');
 });

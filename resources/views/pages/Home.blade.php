@@ -92,7 +92,7 @@
                      <ul>
                         @if(count($catagory->subCatagories) > 0)
                            @foreach($catagory->subCatagories as $sub_catagory)
-                              <li> {{$sub_catagory->sub_catagory_name}}</li>
+                              <li> <a href="list?subcat={{$sub_catagory->id}}">{{$sub_catagory->sub_catagory_name}}</a></li>
                            @endforeach
                         @endif
                      </ul>

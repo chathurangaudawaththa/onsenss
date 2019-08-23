@@ -41,7 +41,7 @@ class ElComponentController extends Controller
             $dataSheetName=time() . ''.$extention;
             $dataSheetPath=public_path('el_component_data_sheets');
             $dataSheet->move($dataSheetPath,$dataSheetName);
-            $dataSheetFullPath=$dataSheetPath.'\\'.$dataSheetName;
+            $dataSheetFullPath='el_component_data_sheets\\'.$dataSheetName;
         }
         
         $electricComponent=ElectricComponent::create(['sub_catagory_id'=>$request->input('sub_catagory_id'),
@@ -68,7 +68,12 @@ class ElComponentController extends Controller
         $elComponents = ElectricComponent :: with('subCatagory')->get();
         return $elComponents;
     }
-
+    
+    public function getAllToList(Request $request){
+        $elComponents=new ElectricComponent;
+        $elComponents = ElectricComponent ::where('sub_catagory_id',  $request->input('subcat'))->with('subCatagory')->get();
+        return View('pages.list')->with('elComponents',$elComponents);
+    }
     public function deleteById(Request $request) {
         $res=ElectricComponent::where('id',  $request->input('compID'))->delete();
         return  $res;
@@ -112,7 +117,7 @@ class ElComponentController extends Controller
             $dataSheetName=time() . ''.$extention;
             $dataSheetPath=public_path('el_component_data_sheets');
             $dataSheet->move($dataSheetPath,$dataSheetName);
-            $dataSheetFullPath=$dataSheetPath.'\\'.$dataSheetName;
+            $dataSheetFullPath='el_component_data_sheets\\'.$dataSheetName;
         }
 
         $elComponents=ElectricComponent::where('id',$request->input('id'))->update(['sub_catagory_id'=>$request->input('sub_catagory_id'),
