@@ -1,9 +1,6 @@
 <?php
 
-Route::get('/', function()
-{
-   return View::make('pages.Home');
-});
+Route::get('/', 'HomeController@home');
 
 
 Route::get('/ons-admin', function()

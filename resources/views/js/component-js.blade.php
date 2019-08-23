@@ -48,7 +48,7 @@
                     str+='<td>'+count+'</td>';
                     str+='<td>'+value.sub_catagory.catagory_name+'</td>';
                     str+='<td><a href="" title="View Product">'+value.part_number+'</a></td>';
-                    str+='<td><img class="zoom" src="{{ asset('value.image_path') }}"></td>';
+                    str+='<td><img class="zoom" src='+value.image_path+' style="height:5%"></td>';
                     str+='<td>'+value.manufacturer+'</td>';
                     str+='<td>'+value.quantity_available+'</td>';
                     str+='<td>'+value.unit_price+'</td>';

@@ -155,28 +155,7 @@
             </tr>
             </thead>
             <tbody id="tbodyview">
-              <tr>
-                <td>1</td>
-                <td>Connectors</td>
-                <td><a href="" title="View Product">493-4042-3-ND</a></td>
-                <td><img class="zoom" src="{{ asset('images/item1.jpg') }}"></td>
-                <td>Nichicon</td>
-                <td>680</td>
-                <td>80.00</td>
-                <td class="article-btn edit"><a href="#" title="Update Data"><i style="color:#ffa700" class="fa fa-pencil-square" aria-hidden="true"></i></a>  </td>
-                <td class="article-btn delete"><a href="#" title="Delete Article"><i style="color:#910f2c" class="fa fa-window-close" aria-hidden="true"></i></a> </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Analog chips</td>
-                <td><a href="" title="View Product">493-44042-3-NFDG</a></td>
-                <td><img class="zoom" src="{{ asset('images/item1.jpg') }}"></td>
-                <td>Nichicon</td>
-                <td>140</td>
-                <td>100.00</td>
-                <td class="article-btn edit"><a href="#" title="Update Data"><i style="color:#ffa700" class="fa fa-pencil-square" aria-hidden="true"></i></a>  </td>
-                <td class="article-btn delete"><a href="#" title="Delete Article"><i style="color:#910f2c" class="fa fa-window-close" aria-hidden="true"></i></a> </td>
-              </tr>
+              
             </tbody>
           </table>
         </div>
