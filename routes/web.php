@@ -23,17 +23,14 @@ Route::get('/add-sub', function () {
 Route::get('/add-component', function () {
     return view('admin.component');
 });
-<<<<<<< HEAD
-// sample routes
+
 Route::get('/list', function () {
     return view('pages.list');
 });
 Route::get('/item', function () {
     return view('pages.item');
 });
-// sample routes
-=======
->>>>>>> branch 'master' of https://github.com/chathurangaudawaththa/onsenss.git
+
 Route::post('/add-user', 'UserController@AddUser');
 
 
@@ -64,3 +61,7 @@ Route::get('/logout', function(){
 
  //Electric component functions
  Route::post('/component/save', 'ElComponentController@save');
+ Route::post('component/getAll', 'ElComponentController@getAll');
+ Route::post('component/getById', 'ElComponentController@getById');
+ Route::post('component/deleteById', 'ElComponentController@deleteById');
+ Route::post('/component/update', 'ElComponentController@update');

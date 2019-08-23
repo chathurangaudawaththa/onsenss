@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="container-fluid footer">
          <div class="container">
             <div class="row ">
@@ -126,7 +125,6 @@
    </script>
    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
    <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
-=======
 <script>
       $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();   
@@ -156,4 +154,3 @@
       
         
    </script>
->>>>>>> branch 'master' of https://github.com/chathurangaudawaththa/onsenss.git

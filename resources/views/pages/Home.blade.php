@@ -227,9 +227,7 @@
          </div>
       </div>
       </div>
-      
-=======
-<a id="button"></a>
+      <a id="button"></a>
       <div class="shink-fix">
          <div class="container-fluid  header-full">
             <div class="container">

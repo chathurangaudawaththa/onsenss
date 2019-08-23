@@ -17,36 +17,24 @@
         </div>
         </div>
         @if(count($errors) > 0)
-        @foreach($errors-> all() as $error)
-<<<<<<< HEAD
-  
+          @foreach($errors-> all() as $error)
             <div class='alert alert-danger'>
                 {{$error}}
             </div>
-        @endforeach
-      @endif
-      @if(session('success'))
+          @endforeach
+        @endif
+        @if(session('success'))
             <div class='alert alert-success'>
                 {{session('success')}}
             </div>
-=======
-          <div class='alert alert-danger'>
-              {{$error}}
-          </div>
-        @endforeach
-      @endif
-      @if(session('success'))
-          <div class='alert alert-success'>
-              {{session('success')}}
-          </div>
->>>>>>> branch 'master' of https://github.com/chathurangaudawaththa/onsenss.git
-      @endif
+        @endif
         <div class="card-body pad">
         <form action="component/save" enctype="multipart/form-data" method="post" id="coponentForm" class="form-horizontal">
     {{ csrf_field() }}
           <div class="card-body">
           <div class="form-group">
             <div class="col-sm-6">
+            <input type="hidden" id="id" name="id">
             <select class="form-control" id="sub_catagory_id" name="sub_catagory_id">
               
             </select>
@@ -100,7 +88,7 @@
           <div class="form-group ">
             <div class="col-md-6 input-group f-right">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="data_sheet" name="data_sheet" multiple="true" onchange="readURL(this);">
+                <input type="file" class="custom-file-input" id="data_sheet" name="data_sheet" multiple="true" onchange="readURLFile(this);">
                 <label class="custom-file-label" for="exampleInputFile">Add Data Sheet</label>
               </div>
               <div class="input-group-append">
@@ -110,15 +98,23 @@
               </div>
             <div class="col-md-6 input-group f-right">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="image" name="image" multiple="true" onchange="readURL(this);">
+                  <input type="file" class="custom-file-input" id="image" name="image" multiple="true" onchange="readURLImg(this);">
                   <label class="custom-file-label" for="exampleInputFile">Add Item Image</label>
                 </div>
                 <div class="input-group-append">
                   <span class="input-group-text" id="">Upload</span>
                 </div>
 
-                </div>
+            </div>
           </div>
+          <div class="form-group ">
+              <div class="col-md-6 f-right">
+                <img id="filePrev" src="#" alt="" style="height:20%;" />
+              </div>
+              <div class="col-md-6 f-right">
+                <img id="imgPrev" src="#" alt="" style="height:20%;" />
+              </div>
+            </div>
           </div>
           <div class="">
           <button type="submit" class="btn btn-success"> Submit </button>
@@ -142,15 +138,14 @@
         </div>
         <div class="card-body pad">
           <table class="table table-bordered" style="font-size:13px;">
-            <tbody>
+            <thead>
             <tr style="text-align: center;">
               <th style="width: 10px">#</th>
-              <th><select class="form-control">
-                <option value="0">All Sub Catagory</option>
-                <option>Connectors</option>
-                <option>Analog chips</option>
-                <option>Keyswitche / Relays</option>
-              </select></th>
+              <th>
+                <select class="form-control" id="subCatFilter">
+
+                </select>
+              </th>
               <th>Part Number</th>
               <th>Image</th>
               <th>Manufacturer</th>
@@ -158,28 +153,30 @@
               <th>Unit Price (LKR)</th>
               <th class="th-sm" colspan="2">Action</th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>Connectors</td>
-              <td><a href="" title="View Product">493-4042-3-ND</a></td>
-              <td><img class="zoom" src="{{ asset('images/item1.jpg') }}"></td>
-              <td>Nichicon</td>
-              <td>680</td>
-              <td>80.00</td>
-              <td class="article-btn edit"><a href="#" title="Update Data"><i style="color:#ffa700" class="fa fa-pencil-square" aria-hidden="true"></i></a>  </td>
-              <td class="article-btn delete"><a href="#" title="Delete Article"><i style="color:#910f2c" class="fa fa-window-close" aria-hidden="true"></i></a> </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Analog chips</td>
-              <td><a href="" title="View Product">493-44042-3-NFDG</a></td>
-              <td><img class="zoom" src="{{ asset('images/item1.jpg') }}"></td>
-              <td>Nichicon</td>
-              <td>140</td>
-              <td>100.00</td>
-              <td class="article-btn edit"><a href="#" title="Update Data"><i style="color:#ffa700" class="fa fa-pencil-square" aria-hidden="true"></i></a>  </td>
-              <td class="article-btn delete"><a href="#" title="Delete Article"><i style="color:#910f2c" class="fa fa-window-close" aria-hidden="true"></i></a> </td>
-            </tr>
+            </thead>
+            <tbody id="tbodyview">
+              <tr>
+                <td>1</td>
+                <td>Connectors</td>
+                <td><a href="" title="View Product">493-4042-3-ND</a></td>
+                <td><img class="zoom" src="{{ asset('images/item1.jpg') }}"></td>
+                <td>Nichicon</td>
+                <td>680</td>
+                <td>80.00</td>
+                <td class="article-btn edit"><a href="#" title="Update Data"><i style="color:#ffa700" class="fa fa-pencil-square" aria-hidden="true"></i></a>  </td>
+                <td class="article-btn delete"><a href="#" title="Delete Article"><i style="color:#910f2c" class="fa fa-window-close" aria-hidden="true"></i></a> </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Analog chips</td>
+                <td><a href="" title="View Product">493-44042-3-NFDG</a></td>
+                <td><img class="zoom" src="{{ asset('images/item1.jpg') }}"></td>
+                <td>Nichicon</td>
+                <td>140</td>
+                <td>100.00</td>
+                <td class="article-btn edit"><a href="#" title="Update Data"><i style="color:#ffa700" class="fa fa-pencil-square" aria-hidden="true"></i></a>  </td>
+                <td class="article-btn delete"><a href="#" title="Delete Article"><i style="color:#910f2c" class="fa fa-window-close" aria-hidden="true"></i></a> </td>
+              </tr>
             </tbody>
           </table>
         </div>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="shink-fix"> 
          <div class="container-fluid  header-full">
             <div class="container">
@@ -51,8 +50,7 @@
             </div>
          </div>
       </div>
-      
-=======
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -80,4 +78,3 @@ margin: 0 auto;
 transform: scale(5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 </style>
->>>>>>> branch 'master' of https://github.com/chathurangaudawaththa/onsenss.git
