@@ -55,6 +55,7 @@
                     str+='<td class="article-btn edit"><a href="#" onclick="setFormValuesByComponentId('+value.id+')" title="Update Data"><i style="color:#ffa700" class="fa fa-pencil-square" aria-hidden="true"></i></a>  </td>';
                     str+='<td class="article-btn delete"><a href="#" onclick="deleteComponent('+value.id+')" title="Delete Article"><i style="color:#910f2c" class="fa fa-window-close" aria-hidden="true"></i></a> </td>';
                     str+='</tr>';
+                    count++;
                 });
                 $('#tbodyview').html(str);
             },

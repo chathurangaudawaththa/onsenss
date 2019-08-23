@@ -30,7 +30,7 @@ class ElComponentController extends Controller
             $imageName=time() . ''.$extention;
             $imagePath=public_path('el_component_images');
             $image->move($imagePath,$imageName);
-            $imageFullPath=$imagePath.'\\'.$imageName;
+            $imageFullPath='el_component_images\\'.$imageName;
         }
         
         $dataSheet=$request->file('data_sheet');
@@ -101,7 +101,7 @@ class ElComponentController extends Controller
             $imageName=time() . ''.$extention;
             $imagePath=public_path('el_component_images');
             $image->move($imagePath,$imageName);
-            $imageFullPath=$imagePath.'\\'.$imageName;
+            $imageFullPath='el_component_images\\'.$imageName;
         }
         
         $dataSheet=$request->file('data_sheet');

@@ -22,7 +22,7 @@ class CatagoryController extends Controller
             $imageName=time() . ''.$extention;
             $imagePath=public_path('catagory_images');
             $image->move($imagePath,$imageName);
-            $imageFullPath=$imagePath.'\\'.$imageName;
+            $imageFullPath='catagory_images\\'.$imageName;
         }
         
        
@@ -76,7 +76,7 @@ class CatagoryController extends Controller
             $imageName=time() . ''.$extention;
             $imagePath=public_path('catagory_images');
             $image->move($imagePath,$imageName);
-            $imageFullPath=$imagePath.'\\'.$imageName;
+            $imageFullPath='catagory_images\\'.$imageName;
         }else{
             $imageFullPath=$catagory->image_path;
         }
