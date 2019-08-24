@@ -23,9 +23,7 @@ Route::get('/add-component', function () {
 
 Route::get('/list','ElComponentController@getAllToList' );
 
-Route::get('/item', function () {
-    return view('pages.item');
-});
+Route::get('/item','ElComponentController@getComponentToItem');
 
 Route::post('/add-user', 'UserController@AddUser');
 

@@ -20,43 +20,43 @@
                   <tbody>
                      <tr >
                         <th scope="row">Digi-Key Part Number</th>
-                        <td >1568-1413-ND</td>
+                        <td >{{$component->part_number}}</td>
                      </tr>
                      <tr>
                         <th scope="row">Manufacturer Part Number</th>
-                        <td>	PRT-11417</td>
+                        <td>	{{$component->manufacturer_part_number}}</td>
                      </tr>
                      <tr>
                         <th scope="row"> Manufacturer</th>
-                        <td>SparkFun Electronics</td>
+                        <td>{{$component->manufacturer}}</td>
                      </tr>
                      <tr>
                         <th scope="row">Description</th>
-                        <td>ARDUINO STACKABLE HEADER KIT - R</td>
+                        <td>{{$component->description}}</td>
                      </tr>
                      <tr>
                         <th scope="row">Quantity Available</th>
-                        <td>1,273 - Immediate</td>
+                        <td>{{$component->quantity_available}}</td>
                      </tr>
                      <tr>
                         <th scope="row">Unit Price USD	</th>
-                        <td>	$1.50000	</td>
+                        <td>{{$component->unit_price}}</td>
                      </tr>
                      <tr>
                         <th scope="row">Minimum Quantity	</th>
-                        <td>1</td>
+                        <td>{{$component->minimum_quantity}}</td>
                      </tr>
                      <tr>
                         <th scope="row">Series</th>
-                        <td>-</td>
+                        <td>{{$component->series}}</td>
                      </tr>
                      <tr>
                         <th scope="row">Part Status		</th>
-                        <td>Active	</td>
+                        <td>{{$component->part_status}}	</td>
                      </tr>
                      <tr>
                         <th scope="row">Accessory</th>
-                        <td>Connector</td>
+                        <td>{{$component->subCatagory->catagory_name}}</td>
                      </tr>
                      <tr>
                         <th scope="row">     Type	For Use With/Related Products	</th>

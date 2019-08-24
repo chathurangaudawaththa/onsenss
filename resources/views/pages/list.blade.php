@@ -39,7 +39,7 @@
                                  <a href="part_img.html" title="Click to visit"> <img class="datasheet-img" src="{{$component->image_path}}" ></a>
                               </div>
                            </td>
-                           <td><a href="part_img.html" title="Click to visit"> {{$component->part_number}}</a></td>
+                           <td><a href="item?compID={{$component->id}}" title="Click to visit"> {{$component->part_number}}</a></td>
                            <td> <a href="part_img.html" title="Click to visit">{{$component->manufacturer_part_number}}</a> </td>
                            <td>{{$component->manufacturer}}</td>
                            <td> 	{{$component->description}}</td>

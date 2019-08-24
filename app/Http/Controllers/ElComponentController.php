@@ -137,4 +137,10 @@ class ElComponentController extends Controller
         
         return  redirect('/add-component')->with('success','Successfully update');
     }
+
+    public function getComponentToItem(Request $request) {
+        $elComponents=ElectricComponent::find($request->input('compID'));
+        return  View('pages.item')->with('component',$elComponents);
+    }
+
 }
