@@ -1,9 +1,13 @@
 <?php
 
+<<<<<<< HEAD
 Route::get('/', function()
 {
    return View::make('pages.Home');
 });
+=======
+Route::get('/', 'HomeController@home');
+>>>>>>> 24cbc8c79ab8bec081143e1a1bf77687e9595b15
 
 
 Route::get('/ons-admin', function()
@@ -23,6 +27,7 @@ Route::get('/add-sub', function () {
 Route::get('/add-component', function () {
     return view('admin.component');
 });
+<<<<<<< HEAD
 // sample routes
 Route::get('/list', function () {
     return view('pages.list');
@@ -31,6 +36,13 @@ Route::get('/item', function () {
     return view('pages.item');
 });
 // sample routes
+=======
+
+Route::get('/list','ElComponentController@getAllToList' );
+
+Route::get('/item','ElComponentController@getComponentToItem');
+
+>>>>>>> 24cbc8c79ab8bec081143e1a1bf77687e9595b15
 Route::post('/add-user', 'UserController@AddUser');
 
 
@@ -61,3 +73,10 @@ Route::get('/logout', function(){
 
  //Electric component functions
  Route::post('/component/save', 'ElComponentController@save');
+<<<<<<< HEAD
+=======
+ Route::post('component/getAll', 'ElComponentController@getAll');
+ Route::post('component/getById', 'ElComponentController@getById');
+ Route::post('component/deleteById', 'ElComponentController@deleteById');
+ Route::post('/component/update', 'ElComponentController@update');
+>>>>>>> 24cbc8c79ab8bec081143e1a1bf77687e9595b15

@@ -24,30 +24,36 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <tr>
-                        <td>1</td>
-                        <td><a class="lnkDatasheet" href="//media.digikey.com/pdf/Data%20Sheets/Sparkfun%20PDFs/PRT-11417_Web.pdf"
-                           target="_blank" track-data="ref_page_event=Display Asset;page_title=Datasheet;asset_type=Datasheet">
-                           <img class="datasheet-img ds-img" src="resources/images/datasheet.webp" >
-                           </a>
-                        </td>
-                        <td>
-                           <div class="zoom zoom-with-pad">
-                              <a href="part_img.html" title="Click to visit"> <img class="datasheet-img" src="resources/images/prt1.png" ></a>
-                           </div>
-                        </td>
-                        <td><a href="part_img.html" title="Click to visit"> 1168-1413-ND</a></td>
-                        <td> <a href="part_img.html" title="Click to visit">PRT-11417</a> </td>
-                        <td> SparkFun Electronics</td>
-                        <td> 	ARDUINO STACKABLE HEADER KIT - R</td>
-                        <td> 	1,273 - Immediate</td>
-                        <td>   		$1.50000</td>
-                        <td> 1</td>
-                        <td> Active</td>
-                        <td>   Connector</td>
-                        <td> <i class="fas fa-shopping-cart"></i></td>
-                     </tr>
-                     
+
+                     @php ($p3 = 1)
+                     @if(count($elComponents) > 0)
+                        @foreach($elComponents as $component)
+                        <tr>
+                           <td>{{$p3}}</td>
+                           <td><a class="lnkDatasheet" href="//media.digikey.com/pdf/Data%20Sheets/Sparkfun%20PDFs/PRT-11417_Web.pdf"
+                              target="_blank" track-data="ref_page_event=Display Asset;page_title=Datasheet;asset_type=Datasheet">
+                              <img class="datasheet-img ds-img" src="resources/images/datasheet.webp" >
+                              </a>
+                           </td>
+                           <td>
+                              <div class="zoom zoom-with-pad">
+                                 <a href="part_img.html" title="Click to visit"> <img class="datasheet-img" src="{{$component->image_path}}" ></a>
+                              </div>
+                           </td>
+                           <td><a href="item?compID={{$component->id}}" title="Click to visit"> {{$component->part_number}}</a></td>
+                           <td> <a href="part_img.html" title="Click to visit">{{$component->manufacturer_part_number}}</a> </td>
+                           <td>{{$component->manufacturer}}</td>
+                           <td> 	{{$component->description}}</td>
+                           <td> 	{{$component->quantity_available}}</td>
+                           <td>   		{{$component->unit_price}}</td>
+                           <td> {{$component->minimum_quantity}}</td>
+                           <td> {{$component->part_status}}</td>
+                           <td>   {{$component->subCatagory->catagory_name}}</td>
+                           <td> <i class="fas fa-shopping-cart"></i></td>
+                        </tr>
+                        @php ($p3 = $p3+1)
+                        @endforeach
+                     @endif
                </table>
             </div>
          </div>

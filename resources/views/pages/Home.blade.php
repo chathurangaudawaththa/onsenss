@@ -84,141 +84,51 @@
          <div class="row">
             <div class="col-sm-12  col-md-3 b-left">
                <p><strong>Products </strong>View All<br>
-                  Semiconductors
-               </p>
-               <ul>
-                  <li> Development Boards, Kits, Programmers</li>
-                  <li>  Discrete</li>
-                  <li> Embedded Computers</li>
-                  <li>Integrated Circuits (ICs)</li>
-                  <li>Isolators</li>
-                  <li>  LED/Optoelectronics
-                  </li>
-                  <li> RF, Wireless</li>
-                  <li> Sensors, Transducers</li>
-               </ul>
-               <p>Passives
-               </p>
-               <ul>
-                  <li> Capacitors</li>
-                  <li>  Crystals, Oscillators</li>
-                  <li> Filters</li>
-                  <li>Inductors, Coils, Chokes</li>
-                  <li>Potentiometers, Variable Resistors</li>
-                  <li> Resistors
-                  </li>
-                  <li> Thermal Management</li>
-               </ul>
-               <p>Electromechanical
-               </p>
-               <ul>
-                  <li> Audio</li>
-                  <li> Fans</li>
-                  <li> Motors, Solenoids, Driver</li>
-                  <li>Relays</li>
-                  <li>Switches</li>
-               </ul>
-               <p>Power, Circuit Protection
-               </p>
-               <ul>
-                  <li> Battery Products</li>
-                  <li> Circuit Protection</li>
-                  <li>Line Protection</li>
-                  <li>Power Supplies</li>
-                  <li>Transformers</li>
-               </ul>
-               <p>Automation</p>
-               <p>
-                  Connectors, Interconnect
-               </p>
-               <p>
-                  Cables, Wires
-               </p>
-               <p>
-                  Test Products
-               </p>
-               <p>
-                  Tools
-               </p>
+
+               @if(count($catagories) > 0)
+                  @foreach($catagories as $catagory)
+                     <p>
+                        {{$catagory->catagory_name}}
+                     </p>
+                     <ul>
+                        @if(count($catagory->subCatagories) > 0)
+                           @foreach($catagory->subCatagories as $sub_catagory)
+                              <li> <a href="list?subcat={{$sub_catagory->id}}">{{$sub_catagory->sub_catagory_name}}</a></li>
+                           @endforeach
+                        @endif
+                     </ul>
+                  @endforeach
+               @endif
+               
             </div>
             <div class="col-sm-12  col-md-9 right-b">
-                  <div class="row">
+               @php ($p3 = 0)
+               @if(count($catagories) > 0)
+                  @for ($i = 0; $i < count($catagories); $i++)
+                     @if($p3==12)
+                        <div class="row">
+                     @endif
+                     
                         <div class="col-sm-12  col-md-3">
                            <div class="card box-b" >
                               <div class="box-img">               
-                                 <img class="card-img-top" src="{{ asset('images/prd1.png') }}" alt="Card image">
+                                 <img class="card-img-top" src="{{ $catagories[$i]->image_path }}" alt="Card image">
                               </div>
                               <div class="card-body">
                                  <p></p>
-                                 <h4 class="card-title">Semiconductors</h4>
-                                 <p class="card-text">A semiconductor material has an electrical conductivity value falling between that of a conductor, such as metallic copper, and an insulator, such as glass.</p>
+                                 <h4 class="card-title">{{$catagories[$i]->catagory_name}}</h4>
+                                 <p class="card-text">{{$catagories[$i]->meta_description}}</p>
                               </div>
                            </div>
                         </div>
-                        <div class="col-sm-12  col-md-3">
-                           <div class="card box-b" >
-                              <div class="box-img">               
-                                 <img class="card-img-top" src="{{ asset('images/prd2.png') }}" alt="Card image">
-                              </div>
-                              <div class="card-body">
-                                 <p></p>
-                                 <h4 class="card-title">Semiconductors</h4>
-                                 <p class="card-text">A semiconductor material has an electrical conductivity value falling between that of a conductor, such as metallic copper, and an insulator, such as glass.</p>
-                              </div>
-                           </div>
+                     @if($p3==12)
                         </div>
-                        <div class="col-sm-12  col-md-3">
-                           <div class="card box-b" >
-                              <div class="box-img">               
-                                 <img class="card-img-top" src="{{ asset('images/prd3.png') }}" alt="Card image">
-                              </div>
-                              <div class="card-body">
-                                 <p></p>
-                                 <h4 class="card-title">Semiconductors</h4>
-                                 <p class="card-text">A semiconductor material has an electrical conductivity value falling between that of a conductor, such as metallic copper, and an insulator, such as glass.</p>
-                              </div>
-                           </div>
-                        </div>
+                     @endif
+                     
+                     @php ($p3 = $p3+3)
+                  @endfor
+               @endif
                         
-                     </div>
-               <div class="row">
-                  <div class="col-sm-12  col-md-3">
-                     <div class="card box-b" >
-                        <div class="box-img">               
-                           <img class="card-img-top" src="{{ asset('images/prd1.png') }}" alt="Card image">
-                        </div>
-                        <div class="card-body">
-                           <p></p>
-                           <h4 class="card-title">Semiconductors</h4>
-                           <p class="card-text">A semiconductor material has an electrical conductivity value falling between that of a conductor, such as metallic copper, and an insulator, such as glass.</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-sm-12  col-md-3">
-                     <div class="card box-b" >
-                        <div class="box-img">               
-                           <img class="card-img-top" src="{{ asset('images/prd2.png') }}" alt="Card image">
-                        </div>
-                        <div class="card-body">
-                           <p></p>
-                           <h4 class="card-title">Semiconductors</h4>
-                           <p class="card-text">A semiconductor material has an electrical conductivity value falling between that of a conductor, such as metallic copper, and an insulator, such as glass.</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-sm-12  col-md-3">
-                     <div class="card box-b" >
-                        <div class="box-img">               
-                           <img class="card-img-top" src="{{ asset('images/prd3.png') }}" alt="Card image">
-                        </div>
-                        <div class="card-body">
-                           <p></p>
-                           <h4 class="card-title">Semiconductors</h4>
-                           <p class="card-text">A semiconductor material has an electrical conductivity value falling between that of a conductor, such as metallic copper, and an insulator, such as glass.</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
             </div>
             <!-- <div class="col-sm-12  ">
                <br>
